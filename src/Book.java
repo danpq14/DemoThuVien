@@ -1,12 +1,12 @@
 
 public class Book {
-    private int bookCode;
-    private String name;
-    private int price;
-    private String author;
-    private String category;
-    private String language;
-    private static int countBook;
+    protected int bookCode;
+    protected String name;
+    protected int price;
+    protected String author;
+    protected String category;
+    protected String language;
+    protected static int countBook = 0;
 
     public Book(int bookCode, String name, int price, String author) {
         this.bookCode = bookCode;

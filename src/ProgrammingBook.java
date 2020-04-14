@@ -1,18 +1,13 @@
 public class ProgrammingBook extends Book {
-    private int bookCode;
-    private String name;
-    private int price;
-    private String author;
-    private String category = "Programming";
-    private String language;
-    private static int countBook;
 
-    public ProgrammingBook(int bookCode, String name, int price, String author,String language) {
+
+    public ProgrammingBook(int bookCode, String name, int price, String author,String language, String category) {
         this.bookCode = bookCode;
         this.name = name;
         this.price = price;
         this.author = author;
         this.language = language;
+        this.category = category;
         countBook++;
     }
 
