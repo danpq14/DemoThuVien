@@ -39,6 +39,8 @@ public class Test {
         System.out.println("2 : Find Book by Author ");
         System.out.println("3 : Find Book by Category ");
         System.out.println("4 : Find Book by Language ");
+        System.out.println("9 : Restart");
+        System.out.println("0 : Exit");
         Scanner sc = new Scanner(System.in);
         choice = sc.nextInt();
         sc.nextLine();
@@ -109,18 +111,17 @@ public class Test {
             if (choice == 4) {
                 System.out.println("Enter Language : ");
                 String request = sc.nextLine();
+                int found = 0;
                 for (int i =0; i<Book.amountBook(); i++) {
                     String bookLanguage = allBook[i].getLanguage();
                     bookLanguage = bookLanguage.toUpperCase();
                     request = request.toUpperCase();
                     if (bookLanguage.contains(request)) {
+                        found ++;
                         System.out.println(allBook[i].toString());
-                        System.out.println();
-                    }
-                    else {
-                        System.out.println("This language was not found");
                     }
                 }
+                if (found == 0) System.out.println("Book not found");
             }
         }
     }
