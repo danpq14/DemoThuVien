@@ -33,6 +33,7 @@ public class Test {
         //--------Creat the Menu--------//
         int choice = -1;
         System.out.println("Welcome to Java Library");
+        System.out.println("Amount of Book in the Library : " + Book.amountBook());
         System.out.println("Menu : ");
         System.out.println("1 : Find Book by Name ");
         System.out.println("2 : Find Book by Author ");
@@ -40,23 +41,26 @@ public class Test {
         System.out.println("4 : Find Book by Language ");
         Scanner sc = new Scanner(System.in);
         choice = sc.nextInt();
+        sc.nextLine();
 
         while (choice != 0) {
+
+
+            //find by Book Name
             if (choice == 1) {
                 System.out.println("Enter Book Name : ");
                 String request = sc.nextLine();
-                System.out.println(request);
-                boolean found = false;
+                int found = 0;
                    for (int i = 0; i<Book.amountBook(); i++) {
                        String bookName = allBook[i].getName();
                        bookName = bookName.toUpperCase();
                        request = request.toUpperCase();
-                       if (bookName.contains(request) && request != null) {
-                           found = true;
+                       if (bookName.contains(request)) {
+                           found ++;
                            System.out.println(allBook[i].toString());
                        }
                    }
-                   if (found == false){
+                   if (found == 0){
                        System.out.println("Book not found");
                    }
                }
@@ -66,18 +70,17 @@ public class Test {
             if (choice == 2) {
                 System.out.println("Enter Author Name : ");
                 String request = sc.nextLine();
-                int count = 0;
+                int found = 0;
                 for (int i=0; i< Book.amountBook(); i++) {
                     String bookAuthor = allBook[i].getAuthor();
                     bookAuthor = bookAuthor.toUpperCase();
                     request = request.toUpperCase();
                     if (bookAuthor.contains(request)) {
-                        System.out.println("Book was found : ");
                         System.out.println(allBook[i].toString());
-                        count   ++;
+                        found   ++;
                     }
                 }
-                if (count ==0) {
+                if (found == 0) {
                     System.out.println("Author not found");
                 }
             }
@@ -86,22 +89,23 @@ public class Test {
             if (choice == 3) {
                 System.out.println("Enter Category : ");
                 String request = sc.nextLine();
-                int count = 0;
+                int found = 0;
                 for (int i=0; i< Book.amountBook(); i++) {
                     String bookCategory = allBook[i].getCategory();
                     bookCategory = bookCategory.toUpperCase();
                     request = request.toUpperCase();
                     if (bookCategory.contains(request)) {
-                        System.out.println("Book was found : ");
                         System.out.println(allBook[i].toString());
-                        count   ++;
+                        found   ++;
                     }
                 }
-                if (count ==0) {
+                if (found ==0) {
                     System.out.println("No book in your category you search");
                 }
             }
 
+
+            //find by Language
             if (choice == 4) {
                 System.out.println("Enter Language : ");
                 String request = sc.nextLine();
@@ -110,7 +114,6 @@ public class Test {
                     bookLanguage = bookLanguage.toUpperCase();
                     request = request.toUpperCase();
                     if (bookLanguage.contains(request)) {
-                        System.out.println("Found your request  : ");
                         System.out.println(allBook[i].toString());
                         System.out.println();
                     }
